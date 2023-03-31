@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title ><b>DashBoard</b></ion-title>
+    <ion-buttons slot="end" (click)="Logout()">
+      <ion-button type="Logout" >Logout </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list style="margin-top:20px">
+    <ion-item *ngFor="let users of userlist ; index as i ">
+      <ion-label>
+        {{users.name}}
+      </ion-label>
+      <ion-label>
+        {{users.email}}
+      </ion-label>
+      <ion-label>
+        {{users.phone}}
+      </ion-label>
+      <ion-label>
+        {{users.datetime}}
+      </ion-label>
+          <ion-icon color="danger" name="trash" (click)="clearData(i)"></ion-icon>
+          <button ion-button [routerLink]="['/edit',i]">
+            <ion-icon color="dark" name="create"></ion-icon>
+          </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
